@@ -4,7 +4,7 @@
   "artist": "Måneskin",
   "bpm": 143,
   "tuning": "Standard Tuning  [ 4th to 1st : E  A  D  G ]",
-  "tones": ["Tone 1 : Bass (베이스 원음)","Tone 2 : 1 Oct Up with Guitar Amp (+1옥타브 기타 앰프)"],
+  "tones": ["Tone 1 : Bass (베이스 원음)", "Tone 2 : 1 Oct Up with Guitar Amp (+1옥타브 기타 앰프)"],
   "runningToneSummary": "Tone 1: Bass  |  Tone 2: +1 Oct Guitar",
   "timeSignature": "4/4",
   "pages": [

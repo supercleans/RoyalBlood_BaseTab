@@ -1,0 +1,127 @@
+{
+  "id": "ten-tonne-skeleton",
+  "title": "Ten Tonne Skeleton",
+  "artist": "Royal Blood",
+  "bpm": 140,
+  "tuning": "Drop D Tuning  [ 4th to 1st : D  A  D  G ]",
+  "tones": ["Tone 1 : Bass (베이스 원음)", "Tone 2 : 1 Oct Up with Guitar Amp (+1옥타브 기타 앰프)"],
+  "runningToneSummary": "Tone 1: Bass  |  Tone 2: +1 Oct Guitar",
+  "timeSignature": "4/4",
+  "pages": [
+    {
+      "pageNumber": 1,
+      "systems": [
+        { "section": "Intro", "toneChange": "Tone 1&2", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "section": "Verse 1", "toneChange": "Tone 1", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":4,"fret":"12","dur":4,"stem":"up","slIn":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"12","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":"up"}]},
+            {"notes":[{"str":4,"fret":"12","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"12","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":"up"}]},
+            {"notes":[{"str":4,"fret":"8","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"8","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":"up"}]},
+            {"notes":[{"str":4,"fret":"5","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"3","dur":4,"stem":"up"},{"str":4,"fret":"2","dur":4,"stem":"up"}]}
+          ]
+        },
+        { "section": "Chorus 1", "toneChange": "Tone 1&2", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "section": "Verse 2", "toneChange": "Tone 1", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":4,"fret":"12","dur":4,"stem":"up","slIn":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"12","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":"up"}]},
+            {"notes":[{"str":4,"fret":"12","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"12","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":"up"}]},
+            {"notes":[{"str":4,"fret":"8","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"8","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":"up"}]},
+            {"notes":[{"str":4,"fret":"5","dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":8},{"str":4,"fret":"0","dur":8,"stem":"up","sl":true},{"str":4,"fret":"3","dur":4,"stem":"up"},{"str":4,"fret":"2","dur":4,"stem":"up"}]}
+          ]
+        },
+        { "section": "Pre-Chorus", "toneChange": "Tone 1&2",
+          "measures": [
+            {"notes":[{"str":4,"fret":"8","dur":1}]},
+            {"notes":[{"str":4,"fret":"5","dur":2,"dotted":true,"stem":"up"},{"chords":[[3,"X"],[4,"X"]],"dur":16,"stem":"up","beam":"16-start"},{"chords":[[3,"X"],[4,"X"]],"dur":16,"stem":"up","beam":"16-mid"},{"chords":[[3,"X"],[4,"X"]],"dur":16,"stem":"up","beam":"16-mid"},{"chords":[[3,"X"],[4,"X"]],"dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "section": "Chorus 2", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "section": "Bridge",
+          "measures": [
+            {"notes":[{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "section": "Breakdown",
+          "measures": [
+            {"notes":[{"str":4,"fret":"0","dur":1,"tie":true}]},
+            {"notes":[{"str":4,"fret":"0","dur":1}]},
+            {"notes":[{"str":4,"fret":"9","dur":1}]},
+            {"notes":[{"str":4,"fret":"5","dur":1}]}
+          ]
+        }
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "systems": [
+        { "newLine": true,
+          "measures": [
+            {"width":0.65,"notes":[{"str":4,"fret":"0","dur":1,"tie":true}]},
+            {"width":0.65,"notes":[{"str":4,"fret":"0","dur":1}]},
+            {"width":0.65,"notes":[{"str":4,"fret":"9","dur":1}]},
+            {"width":2.05,"notes":[{"str":4,"fret":"8","dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"rest":true,"dur":4},{"str":4,"fret":"12","dur":4,"stem":"up","slIn":"up","sl":"down"}]}
+          ]
+        },
+        { "section": "Solo 1",
+          "measures": [
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "newLine": true,
+          "measures": [
+            {"notes":[{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":1,"fret":"12","dur":16,"stem":"down","beam":"16-start"},{"str":1,"fret":"12","dur":16,"stem":"down","bend":"full","beam":"16-mid"},{"str":1,"fret":"10","dur":16,"stem":"down","beam":"16-mid"},{"str":1,"fret":"12","dur":16,"stem":"down","beam":"16-end"},{"str":2,"fret":"12","dur":4,"stem":"down","sl":"down"}]}
+          ]
+        },
+        { "section": "Solo 2",
+          "measures": [
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"12","dur":8,"stem":"up","bend":"full","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"12","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"10","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"12","dur":8,"stem":"up","bend":"full","beam":"mid"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"12","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"10","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "newLine": true,
+          "measures": [
+            {"notes":[{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"8","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"mid"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"mid"},{"str":1,"fret":"5","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"9","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"5","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "section": "Outro Bridge", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"7","dur":16,"stem":"up","beam":"16-end"}]}
+          ]
+        },
+        { "section": "Ending", "endBar": true,
+          "measures": [
+            {"notes":[{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"8","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-start"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-mid"},{"str":4,"fret":"2","dur":16,"stem":"up","beam":"16-end"}]},
+            {"notes":[{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"7","dur":8,"stem":"up","beam":"end"},{"str":4,"fret":"0","dur":8,"stem":"up","beam":"start"},{"str":1,"fret":"5","dur":16,"stem":"up","beam":"16-start"},{"str":1,"fret":"7","dur":16,"stem":"up","beam":"16-end"},{"str":4,"fret":"0","dur":4,"stem":"up"},{"rest":true,"dur":4}]}
+          ]
+        }
+      ]
+    }
+  ]
+}

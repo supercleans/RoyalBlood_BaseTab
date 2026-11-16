@@ -1,0 +1,156 @@
+{
+  "id": "feel",
+  "title": "FEEL",
+  "artist": "Måneskin",
+  "bpm": 125,
+  "tuning": "Standard Tuning  [ 4th to 1st : E  A  D  G ]",
+  "tones": ["Tone 1 : Bass (베이스 원음)", "Tone 2 : 1 Oct Up with Guitar Amp (+1옥타브 기타 앰프)"],
+  "runningToneSummary": "Tone 1: Bass  |  Tone 2: +1 Oct Guitar",
+  "timeSignature": "4/4",
+  "pages": [
+    {
+      "pageNumber": 1,
+      "systems": [
+        { "section": "Intro", "toneChange": "Tone 1&2",
+          "measures": [
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "section": "Verse 1", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "section": "Verse 1 (P.M. / Melody)",
+          "measures": [
+            {"chord":"B5","notes":[{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"start"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"end"},{"str":3,"fret":"2","dur":8,"beam":"start"},{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"end"}]},
+            {"chord":"Bm7","notes":[{"str":2,"fret":"7","dur":8,"beam":"start"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"str":2,"fret":"6","dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"end"},{"str":2,"fret":"5","dur":8,"beam":"start"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"end"}]},
+            {"chord":"D5","notes":[{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"start"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"end"},{"str":3,"fret":"5","dur":8,"beam":"start"},{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"end"}]},
+            {"chord":"D6","notes":[{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"start"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"9"],[3,"5"]],"dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"end"},{"chords":[[1,"7"],[3,"5"]],"dur":8,"beam":"start"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"9"],[3,"5"]],"dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"end"}]}
+          ]
+        },
+        { "section": "Pre-Chorus 1",
+          "measures": [
+            {"chord":"E5","notes":[{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":2},{"rest":true,"dur":8},{"chords":[[1,"7"],[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"flag-8","chord":"D5"}]},
+            {"chord":"E5","notes":[{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":2,"dotted":true}]},
+            {"chord":"F#5","notes":[{"chords":[[1,"11"],[2,"11"],[3,"9"]],"dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":2,"dotted":true}]},
+            {"wholeRest":true,"notes":[]},
+            {"wholeRest":true,"notes":[]}
+          ]
+        },
+        { "section": "Chorus 1",
+          "measures": [
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "section": "Chorus 1 (Power Chords)",
+          "measures": [
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "section": "Verse 2", "toneChange": "Tone 1", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"2","dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"str":3,"fret":"7","dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "section": "Verse 2 (P.M. / Melody)",
+          "measures": [
+            {"chord":"B5","notes":[{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"start"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"end"},{"str":3,"fret":"2","dur":8,"beam":"start"},{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"end"}]},
+            {"chord":"Bm7","notes":[{"str":2,"fret":"7","dur":8,"beam":"start"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"str":2,"fret":"6","dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"end"},{"str":2,"fret":"5","dur":8,"beam":"start"},{"str":3,"fret":"2","dur":8,"beam":"mid"},{"chords":[[2,"4"],[3,"2"]],"dur":8,"beam":"mid"},{"str":3,"fret":"2","dur":8,"beam":"end"}],"toneChange":"Tone 1&2"},
+            {"chord":"D5","notes":[{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"start"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"end"},{"str":3,"fret":"5","dur":8,"beam":"start"},{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"end"}]},
+            {"chord":"D6","notes":[{"chords":[[2,"7"],[3,"5"]],"dur":8,"beam":"start"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"9"],[3,"5"]],"dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"end"},{"chords":[[1,"7"],[3,"5"]],"dur":8,"beam":"start"},{"str":3,"fret":"5","dur":8,"beam":"mid"},{"chords":[[2,"9"],[3,"5"]],"dur":8,"beam":"mid"},{"str":3,"fret":"5","dur":8,"beam":"end"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "systems": [
+        { "section": "Pre-Chorus 2",
+          "measures": [
+            {"chord":"E5","notes":[{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":2},{"rest":true,"dur":8},{"chords":[[1,"7"],[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"flag-8","chord":"D5"}]},
+            {"chord":"E5","notes":[{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":2,"dotted":true}]},
+            {"chord":"F#5","notes":[{"chords":[[1,"11"],[2,"11"],[3,"9"]],"dur":4,"stem":"up","sl":"down"},{"rest":true,"dur":2,"dotted":true}]},
+            {"wholeRest":true,"notes":[]}
+          ]
+        },
+        { "section": "Chorus 2", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "section": "Bridge", "repeatStartBar": true, "repeatEndBar": true, "repeatEnd": "(2X)",
+          "measures": [
+            {"chord":"G5","notes":[{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"},{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"},{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"},{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"},{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"},{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"},{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"},{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":8,"stem":"up"}]},
+            {"chord":"E5","notes":[{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"},{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"},{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"},{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"},{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"},{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"},{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"},{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":8,"stem":"up"}]},
+            {"chord":"B5","notes":[{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"}]},
+            {"chord":"B5","notes":[{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"},{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":8,"stem":"up"}]}
+          ]
+        },
+        { "section": "Bridge (Sustain)",
+          "measures": [
+            {"chord":"G5","notes":[{"chords":[[2,"5"],[3,"5"],[4,"3"]],"dur":1}]},
+            {"chord":"E5","notes":[{"chords":[[1,"9"],[2,"9"],[3,"7"]],"dur":1}]},
+            {"chord":"B5","notes":[{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":1,"tie":true}]},
+            {"chord":"B5","notes":[{"chords":[[1,"4"],[2,"4"],[3,"2"]],"dur":1}]},
+            {"wholeRest":true,"notes":[]}
+          ]
+        },
+        { "section": "Final Chorus",
+          "measures": [
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "newLine": true,
+          "measures": [
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"chords":[[2,"4"],[3,"2"]],"dur":8,"stem":"up","beam":"start","sl":true},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"E5"}
+          ]
+        },
+        { "section": "Chorus (High Octave)", "toneChange": "Tone 2",
+          "measures": [
+            {"notes":[{"chords":[[1,"11"],[2,"9"]],"dur":4,"stem":"down"},{"rest":true,"dur":8},{"chords":[[1,"11"],[2,"9"]],"dur":8,"stem":"down","beam":"start","sl":true},{"chords":[[1,"16"],[2,"14"]],"dur":8,"stem":"down","beam":"end"},{"rest":true,"dur":16},{"chords":[[1,"14"],[2,"12"]],"dur":8,"stem":"down","beam":"start"},{"rest":true,"dur":16},{"chords":[[1,"14"],[2,"12"]],"dur":8,"stem":"down","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[1,"11"],[2,"9"]],"dur":4,"stem":"down"},{"rest":true,"dur":8},{"chords":[[1,"11"],[2,"9"]],"dur":8,"stem":"down","beam":"start","sl":true},{"chords":[[1,"16"],[2,"14"]],"dur":8,"stem":"down","beam":"end"},{"rest":true,"dur":16},{"chords":[[1,"14"],[2,"12"]],"dur":8,"stem":"down","beam":"start"},{"rest":true,"dur":16},{"chords":[[1,"14"],[2,"12"]],"dur":8,"stem":"down","beam":"end"}],"chord":"B5"}
+          ]
+        },
+        { "newLine": true,
+          "measures": [
+            {"notes":[{"chords":[[1,"11"],[2,"9"]],"dur":4,"stem":"down"},{"rest":true,"dur":8},{"chords":[[1,"11"],[2,"9"]],"dur":8,"stem":"down","beam":"start","sl":true},{"chords":[[1,"16"],[2,"14"]],"dur":8,"stem":"down","beam":"end"},{"rest":true,"dur":16},{"chords":[[1,"14"],[2,"12"]],"dur":8,"stem":"down","beam":"start"},{"rest":true,"dur":16},{"chords":[[1,"14"],[2,"12"]],"dur":8,"stem":"down","beam":"end"}],"chord":"B5"},
+            {"notes":[{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":8},{"chords":[[2,"9"],[3,"7"]],"dur":8,"stem":"up","beam":"flag-8"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"start","chord":"D5"},{"rest":true,"dur":16},{"chords":[[2,"7"],[3,"5"]],"dur":8,"stem":"up","beam":"end"}],"chord":"E5","toneChange":"Tone 1&2"}
+          ]
+        },
+        { "section": "Outro", "endBar": true,
+          "measures": [
+            {"chord":"B5","notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}]},
+            {"chord":"B5","notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}]},
+            {"chord":"B5","notes":[{"chords":[[2,"4"],[3,"2"]],"dur":4,"stem":"up"},{"rest":true,"dur":8},{"str":3,"fret":"2","dur":8,"stem":"up","beam":"start","sl":true},{"str":3,"fret":"7","dur":8,"stem":"up","beam":"end"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"start"},{"rest":true,"dur":16},{"str":3,"fret":"5","dur":8,"stem":"up","beam":"end"}]},
+            {"chord":"E5","notes":[{"chords":[[2,"9"],[3,"7"]],"dur":4,"stem":"up"},{"rest":true,"dur":2,"dotted":true}]}
+          ]
+        }
+      ]
+    }
+  ]
+}
