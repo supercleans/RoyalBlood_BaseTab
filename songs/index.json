@@ -1,6 +1,18 @@
 {
   "songs": [
     {
+      "id": "mammamia",
+      "title": "MAMMAMIA",
+      "artist": "Måneskin",
+      "file": "songs/mammamia.json"
+    },
+    {
+      "id": "feel",
+      "title": "FEEL",
+      "artist": "Måneskin",
+      "file": "songs/feel.json"
+    },
+    {
       "id": "ten-tonne-skeleton",
       "title": "Ten Tonne Skeleton",
       "artist": "Royal Blood",
@@ -13,22 +25,16 @@
       "file": "songs/figure-it-out.json"
     },
     {
-      "id": "feel",
-      "title": "FEEL",
-      "artist": "Måneskin",
-      "file": "songs/feel.json"
-    },
-    {
       "id": "gasoline",
       "title": "GASOLINE",
       "artist": "Måneskin",
       "file": "songs/gasoline.json"
     },
     {
-      "id": "mammamia",
-      "title": "MAMMAMIA",
-      "artist": "Måneskin",
-      "file": "songs/mammamia.json"
+      "id": "hysteria-bassonly",
+      "title": "Hysteria BassOnly",
+      "artist": "Muse",
+      "file": "songs/hysteria-bassonly.json"
     }
   ]
 }
