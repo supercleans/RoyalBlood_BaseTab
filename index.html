@@ -708,6 +708,188 @@
     z-index: 10000;
   }
 
+  
+  /* ---- 태블릿 보기 모드 (Tablet / Stage View Mode) ---- */
+  body.tablet-view-mode {
+    background: #0f172a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  body.tablet-view-mode.tv-scroll-mode,
+  body.tablet-view-mode.tv-fit-width-mode {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  body.tablet-view-mode .app-header,
+  body.tablet-view-mode .toolbar,
+  body.tablet-view-mode .practice-dock,
+  body.tablet-view-mode .section-jump-bar,
+  body.tablet-view-mode .validation-panel {
+    display: none !important;
+  }
+
+  body.tablet-view-mode .score-viewport {
+    width: 100vw;
+    height: 100dvh;
+    padding: 0 0 54px 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  body.tablet-view-mode.tv-bar-is-hidden .score-viewport { padding-bottom: 0; }
+
+  body.tablet-view-mode.tv-scroll-mode .score-viewport,
+  body.tablet-view-mode.tv-fit-width-mode .score-viewport {
+    height: auto;
+    min-height: 100dvh;
+    align-items: flex-start;
+    padding: 12px 0 90px 0;
+    overflow: visible;
+  }
+
+  body.tablet-view-mode #score-root {
+    transform: scale(var(--tablet-scale, 1)) !important;
+    transform-origin: center center !important;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    transition: none !important;
+  }
+
+  body.tablet-view-mode.tv-scroll-mode #score-root {
+    transform-origin: top center !important;
+    flex-direction: column !important;
+    gap: 16px;
+  }
+
+  body.tablet-view-mode.tv-fit-width-mode #score-root {
+    transform-origin: top center !important;
+  }
+
+  body.tablet-view-mode .page {
+    margin: 0 !important;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.55) !important;
+  }
+
+  body.tablet-view-mode .page.tv-hidden-page {
+    display: none !important;
+  }
+
+  /* 태블릿 좌/우 터치 넘김 가이드 존 */
+  .tv-tap-zone {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 18vw;
+    z-index: 9500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .tv-tap-zone:hover, .tv-tap-zone:active {
+    opacity: 1;
+  }
+  .tv-tap-zone.left {
+    left: 0;
+    background: linear-gradient(90deg, rgba(15,23,42,0.35) 0%, transparent 100%);
+  }
+  .tv-tap-zone.right {
+    right: 0;
+    background: linear-gradient(270deg, rgba(15,23,42,0.35) 0%, transparent 100%);
+  }
+  .tv-tap-zone span {
+    background: rgba(15, 23, 42, 0.78);
+    color: #f8fafc;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    width: 44px;
+    height: 68px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 900;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+  body.tablet-view-mode:not(.tv-scroll-mode) .tv-tap-zone {
+    display: flex;
+  }
+
+  /* 하단 미니 플로팅 컨트롤바 */
+  .tablet-floating-bar {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9600;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    color: #f8fafc;
+    border: 1px solid #334155;
+    border-radius: 999px;
+    padding: 7px 14px;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+    font-family: 'Noto Sans KR', sans-serif;
+    max-width: 96vw;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  body.tablet-view-mode .tablet-floating-bar {
+    display: flex;
+  }
+  body.tablet-view-mode .tablet-floating-bar.tv-bar-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(20px);
+  }
+  .tv-page-indicator {
+    font-size: 13px;
+    font-weight: 800;
+    color: #38bdf8;
+    min-width: 64px;
+    text-align: center;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  }
+  .tv-mini-reopen {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 9601;
+    background: rgba(15, 23, 42, 0.75);
+    color: #cbd5e1;
+    border: 1px solid #334155;
+    border-radius: 999px;
+    padding: 5px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    backdrop-filter: blur(4px);
+  }
+  body.tablet-view-mode .tv-mini-reopen {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
   @page { size: A4; margin: 0; }
 
   @media print {
@@ -740,6 +922,7 @@
     </div>
   </div>
   <div class="header-actions">
+    <button type="button" class="app-btn primary" style="background:#059669; border-color:#10b981;" onclick="enterTabletViewMode()" title="상단 메뉴를 모두 숨기고 태블릿 화면에 맞춰 페이지 단위로 넘기며 볼 수 있는 전용 보기 모드">📖 태블릿 보기 모드</button>
     <input type="text" id="song-search" class="search-input" placeholder="곡명 / 아티스트 / 튜닝 검색..." oninput="filterSongTabs(this.value)">
     <button type="button" class="app-btn" onclick="openSongModal(false)">+ 새 악보 추가</button>
     <button type="button" class="app-btn" onclick="openSongModal(true)" title="현재 보고 있는 곡의 JSON을 불러와 확인·수정하거나 개별 파일로 추출합니다">✏️ 현재 곡 JSON 수정/추출</button>
@@ -786,6 +969,7 @@
       <label class="chk-label"><input type="checkbox" id="measure-num-chk" onchange="toggleMeasureNumbers(this.checked)"> 마디 번호</label>
     </div>
 
+    <button class="print-btn" style="background:#2563eb; margin-right:4px;" onclick="enterTabletViewMode()" title="태블릿/아이패드 페이지 넘김 전용 보기 모드">📖 보기 모드</button>
     <button class="print-btn" onclick="window.print()">인쇄 / PDF 저장 (Ctrl+P)</button>
   </div>
 </div>
@@ -829,8 +1013,35 @@
 
 <div id="validation-panel" class="validation-panel"></div>
 
-<div class="score-viewport">
+<div class="score-viewport" id="score-viewport" onclick="handleTabletViewportClick(event)">
   <div id="score-root"></div>
+</div>
+
+<!-- 태블릿 보기 모드 전용 좌/우 터치 존 및 하단 플로팅 바 -->
+<div class="tv-tap-zone left" onclick="tabletPrevPage(event)" title="이전 페이지 (← / 스와이프)"><span>‹</span></div>
+<div class="tv-tap-zone right" onclick="tabletNextPage(event)" title="다음 페이지 (→ / 스와이프)"><span>›</span></div>
+<button type="button" class="tv-mini-reopen" id="tv-mini-reopen-btn" onclick="toggleTabletFloatingBar()">🎛️ 메뉴바 / 종료</button>
+
+<div class="tablet-floating-bar" id="tablet-floating-bar">
+  <button type="button" class="app-btn" id="tv-prev-btn" onclick="tabletPrevPage(event)">◀ 이전</button>
+  <span class="tv-page-indicator" id="tv-page-indicator">1 / 1 쪽</span>
+  <button type="button" class="app-btn" id="tv-next-btn" onclick="tabletNextPage(event)">다음 ▶</button>
+
+  <span style="color:#475569;">|</span>
+
+  <select id="tv-song-select" class="vis-select" style="max-width:170px; padding:5px 8px;" onchange="selectSong(this.value)" title="보기 모드에서 곡 바로 전환"></select>
+
+  <select id="tv-fit-select" class="vis-select" style="padding:5px 8px;" onchange="changeTabletFitMode(this.value)" title="태블릿 화면 맞춤 방식 선택">
+    <option value="page1" selected>📄 1쪽 화면 맞춤</option>
+    <option value="page2">📖 2쪽 나란히 보기</option>
+    <option value="width">↔ 가로폭 꽉 채우기</option>
+    <option value="scroll">📜 연속 스크롤</option>
+  </select>
+
+  <button type="button" class="app-btn" id="tv-metro-btn" onclick="toggleMetronome(); syncTabletMetroBtn();">🥁 메트로놈</button>
+  <button type="button" class="app-btn" onclick="toggleBrowserFullscreen()" title="브라우저 전체화면 토글">⛶ 전체화면</button>
+  <button type="button" class="app-btn" onclick="toggleTabletFloatingBar()" title="하단 바 숨기기 (화면 중앙 터치 시 다시 표시)">⬇ 바 숨김</button>
+  <button type="button" class="app-btn active-toggle" onclick="exitTabletViewMode()">✕ 보기 모드 닫기</button>
 </div>
 
 <!-- 무료 서버 배포 가이드 모달 -->
@@ -20592,6 +20803,8 @@ function downloadStandaloneHTML() {
   const savedEmbedParent = embedEl ? embedEl.parentNode : null;
   if (embedEl && savedEmbedParent) savedEmbedParent.removeChild(embedEl);
 
+  const wasTabletMode = isTabletViewMode;
+  if (wasTabletMode) exitTabletViewMode();
   const openModals = Array.from(document.querySelectorAll(".modal-backdrop.open"));
   openModals.forEach(m => m.classList.remove("open"));
   const idsToClear = ["score-root", "song-tabs", "section-jump-bar", "validation-panel", "pg-yt-list"];
@@ -20606,6 +20819,7 @@ function downloadStandaloneHTML() {
     if (el && savedHTML[id] !== undefined) el.innerHTML = savedHTML[id];
   });
   openModals.forEach(m => m.classList.add("open"));
+  if (wasTabletMode) enterTabletViewMode();
   if (embedEl && savedEmbedParent) savedEmbedParent.appendChild(embedEl);
   rebuildSongTabs(document.getElementById("song-search")?.value || "");
   updateSectionJumpBar(ALL_SONGS.find(s => s.id === currentSongId) || ALL_SONGS[0]);
@@ -20904,6 +21118,8 @@ function downloadTemplateHTML() {
   const savedEmbed = embedEl ? embedEl.parentNode : null;
   if (embedEl && savedEmbed) savedEmbed.removeChild(embedEl);
 
+  const wasTabletMode = isTabletViewMode;
+  if (wasTabletMode) exitTabletViewMode();
   const openModals = Array.from(document.querySelectorAll(".modal-backdrop.open"));
   openModals.forEach(m => m.classList.remove("open"));
   const idsToClear = ["score-root", "song-tabs", "section-jump-bar", "validation-panel", "pg-yt-list"];
@@ -20920,6 +21136,7 @@ function downloadTemplateHTML() {
     if (el && savedHTML[id] !== undefined) el.innerHTML = savedHTML[id];
   });
   openModals.forEach(m => m.classList.add("open"));
+  if (wasTabletMode) enterTabletViewMode();
   if (embedEl && savedEmbed) savedEmbed.appendChild(embedEl);
   rebuildSongTabs(document.getElementById("song-search")?.value || "");
   updateSectionJumpBar(ALL_SONGS.find(s => s.id === currentSongId) || ALL_SONGS[0]);
@@ -20943,11 +21160,277 @@ function downloadTemplateHTML() {
   showToast("AI 전달용 경량 템플릿(index_template.html)이 다운로드되었습니다!");
 }
 
+// ============================================================================
+// 태블릿 / 스테이지 전용 보기 모드 (Tablet View Mode)
+// ============================================================================
+let isTabletViewMode = false;
+let tabletPageIdx = 0; // 0-based page index
+let tabletFitMode = "page1"; // "page1" | "page2" | "width" | "scroll"
+let tabletWakeLock = null;
+let tvTouchStartX = 0;
+let tvTouchStartY = 0;
+
+async function requestTabletWakeLock() {
+  try {
+    if ("wakeLock" in navigator && navigator.wakeLock && !tabletWakeLock) {
+      tabletWakeLock = await navigator.wakeLock.request("screen");
+      tabletWakeLock.addEventListener("release", () => { tabletWakeLock = null; });
+    }
+  } catch (e) {}
+}
+
+function releaseTabletWakeLock() {
+  try {
+    if (tabletWakeLock) {
+      tabletWakeLock.release();
+      tabletWakeLock = null;
+    }
+  } catch (e) {}
+}
+
+function populateTabletSongSelect() {
+  const sel = document.getElementById("tv-song-select");
+  if (!sel) return;
+  sel.innerHTML = "";
+  ALL_SONGS.forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s.id;
+    opt.textContent = `${s.title} (${s.artist || s.id})`;
+    if (s.id === currentSongId) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+
+function syncTabletMetroBtn() {
+  const btn = document.getElementById("tv-metro-btn");
+  if (!btn) return;
+  const bpmVal = document.getElementById("metro-bpm-input")?.value || 140;
+  if (typeof metroPlaying !== "undefined" && metroPlaying) {
+    btn.textContent = `⏹ ${bpmVal} BPM 정지`;
+    btn.classList.add("active-toggle");
+  } else {
+    btn.textContent = `🥁 ${bpmVal} BPM 재생`;
+    btn.classList.remove("active-toggle");
+  }
+}
+
+function enterTabletViewMode() {
+  isTabletViewMode = true;
+  tabletPageIdx = 0;
+  document.body.classList.add("tablet-view-mode");
+  const bar = document.getElementById("tablet-floating-bar");
+  if (bar) bar.classList.remove("tv-bar-hidden");
+  populateTabletSongSelect();
+  syncTabletMetroBtn();
+  applyTabletPageAndScale();
+  requestTabletWakeLock();
+  showToast("태블릿 보기 모드: 좌/우 터치·스와이프로 페이지 이동, 중앙 터치로 하단 바를 숨길 수 있습니다.");
+}
+
+function exitTabletViewMode() {
+  isTabletViewMode = false;
+  document.body.classList.remove("tablet-view-mode", "tv-scroll-mode", "tv-fit-width-mode", "tv-bar-is-hidden");
+  document.documentElement.style.removeProperty("--tablet-scale");
+  const pages = Array.from(document.querySelectorAll("#score-root .page"));
+  pages.forEach(p => p.classList.remove("tv-hidden-page"));
+  releaseTabletWakeLock();
+  try {
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  } catch (e) {}
+}
+
+function changeTabletFitMode(mode) {
+  tabletFitMode = mode || "page1";
+  const sel = document.getElementById("tv-fit-select");
+  if (sel && sel.value !== tabletFitMode) sel.value = tabletFitMode;
+  applyTabletPageAndScale();
+}
+
+function applyTabletPageAndScale() {
+  if (!isTabletViewMode) return;
+  const pages = Array.from(document.querySelectorAll("#score-root .page"));
+  const total = pages.length || 1;
+  if (tabletPageIdx >= total) tabletPageIdx = total - 1;
+  if (tabletPageIdx < 0) tabletPageIdx = 0;
+
+  document.body.classList.toggle("tv-scroll-mode", tabletFitMode === "scroll");
+  document.body.classList.toggle("tv-fit-width-mode", tabletFitMode === "width");
+
+  const step = (tabletFitMode === "page2") ? 2 : 1;
+  if (tabletFitMode === "scroll") {
+    pages.forEach(p => p.classList.remove("tv-hidden-page"));
+  } else if (tabletFitMode === "page2") {
+    pages.forEach((p, idx) => {
+      const visible = (idx === tabletPageIdx || idx === tabletPageIdx + 1);
+      p.classList.toggle("tv-hidden-page", !visible);
+    });
+  } else {
+    pages.forEach((p, idx) => {
+      p.classList.toggle("tv-hidden-page", idx !== tabletPageIdx);
+    });
+  }
+
+  // A4 page base dimensions in CSS px (~794 x 1123 at 96dpi)
+  const pageW = 794;
+  const pageH = 1123;
+  const vw = Math.max(320, window.innerWidth || 800);
+  const vh = Math.max(320, window.innerHeight || 1000);
+  const bar = document.getElementById("tablet-floating-bar");
+  const barVisible = bar && !bar.classList.contains("tv-bar-hidden");
+  const availH = vh - (barVisible ? 64 : 14);
+  const availW = vw - 16;
+
+  let scale = 1.0;
+  if (tabletFitMode === "page1") {
+    scale = Math.min(availW / pageW, availH / pageH);
+  } else if (tabletFitMode === "page2") {
+    const visibleCount = (tabletPageIdx + 1 < total) ? 2 : 1;
+    const totalW = pageW * visibleCount + (visibleCount > 1 ? 10 : 0);
+    scale = Math.min(availW / totalW, availH / pageH);
+  } else if (tabletFitMode === "width") {
+    scale = (vw - 24) / pageW;
+  } else if (tabletFitMode === "scroll") {
+    scale = Math.min(1.35, (vw - 24) / pageW);
+  }
+  scale = Math.max(0.35, Math.min(2.5, +scale.toFixed(3)));
+  document.documentElement.style.setProperty("--tablet-scale", String(scale));
+
+  const ind = document.getElementById("tv-page-indicator");
+  if (ind) {
+    if (tabletFitMode === "scroll") {
+      ind.textContent = `전체 ${total}쪽`;
+    } else if (tabletFitMode === "page2" && tabletPageIdx + 1 < total) {
+      ind.textContent = `${tabletPageIdx + 1}-${tabletPageIdx + 2} / ${total} 쪽`;
+    } else {
+      ind.textContent = `${tabletPageIdx + 1} / ${total} 쪽`;
+    }
+  }
+  const prevBtn = document.getElementById("tv-prev-btn");
+  const nextBtn = document.getElementById("tv-next-btn");
+  if (prevBtn) prevBtn.disabled = (tabletFitMode !== "scroll" && tabletPageIdx <= 0);
+  if (nextBtn) nextBtn.disabled = (tabletFitMode !== "scroll" && tabletPageIdx + step >= total);
+}
+
+function tabletPrevPage(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  if (!isTabletViewMode || tabletFitMode === "scroll") return;
+  const step = (tabletFitMode === "page2") ? 2 : 1;
+  if (tabletPageIdx > 0) {
+    tabletPageIdx = Math.max(0, tabletPageIdx - step);
+    applyTabletPageAndScale();
+    if (tabletFitMode === "width") window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    showToast("첫 번째 페이지입니다.");
+  }
+}
+
+function tabletNextPage(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  if (!isTabletViewMode || tabletFitMode === "scroll") return;
+  const pages = document.querySelectorAll("#score-root .page");
+  const total = pages.length || 1;
+  const step = (tabletFitMode === "page2") ? 2 : 1;
+  if (tabletPageIdx + step < total) {
+    tabletPageIdx += step;
+    applyTabletPageAndScale();
+    if (tabletFitMode === "width") window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    showToast("마지막 페이지입니다.");
+  }
+}
+
+function toggleTabletFloatingBar() {
+  const bar = document.getElementById("tablet-floating-bar");
+  if (!bar) return;
+  const hidden = bar.classList.toggle("tv-bar-hidden");
+  document.body.classList.toggle("tv-bar-is-hidden", hidden);
+  applyTabletPageAndScale();
+}
+
+function handleTabletViewportClick(e) {
+  if (!isTabletViewMode) return;
+  // 좌측 22% / 우측 22% 클릭 시 페이지 이동, 중앙 56% 클릭 시 하단 컨트롤바 토글
+  const vw = window.innerWidth || 800;
+  const x = e.clientX || (vw / 2);
+  if (tabletFitMode !== "scroll") {
+    if (x < vw * 0.22) {
+      tabletPrevPage(e);
+      return;
+    }
+    if (x > vw * 0.78) {
+      tabletNextPage(e);
+      return;
+    }
+  }
+  toggleTabletFloatingBar();
+}
+
+function toggleBrowserFullscreen() {
+  try {
+    if (!document.fullscreenElement) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  } catch (e) {}
+}
+
+if (typeof window !== "undefined" && window.addEventListener) {
+  window.addEventListener("resize", () => {
+    if (isTabletViewMode) applyTabletPageAndScale();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (!isTabletViewMode) return;
+    const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+    if (tag === "input" || tag === "textarea" || tag === "select") return;
+    if (e.key === "Escape") {
+      exitTabletViewMode();
+    } else if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " " || e.key === "ArrowDown") {
+      if (tabletFitMode !== "scroll") {
+        e.preventDefault();
+        tabletNextPage(e);
+      }
+    } else if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "ArrowUp") {
+      if (tabletFitMode !== "scroll") {
+        e.preventDefault();
+        tabletPrevPage(e);
+      }
+    }
+  });
+
+  window.addEventListener("touchstart", (e) => {
+    if (!isTabletViewMode || !e.touches || e.touches.length !== 1) return;
+    tvTouchStartX = e.touches[0].clientX;
+    tvTouchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener("touchend", (e) => {
+    if (!isTabletViewMode || tabletFitMode === "scroll" || !e.changedTouches || e.changedTouches.length !== 1) return;
+    const dx = e.changedTouches[0].clientX - tvTouchStartX;
+    const dy = e.changedTouches[0].clientY - tvTouchStartY;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) tabletNextPage();
+      else tabletPrevPage();
+    }
+  }, { passive: true });
+}
+
 function selectSong(songId) {
   renderSong(songId);
   const song = ALL_SONGS.find(s => s.id === songId) || ALL_SONGS[0];
   if (song && song.bpm) setMetronomeBpm(song.bpm);
   updateSectionJumpBar(song);
+  if (typeof isTabletViewMode !== "undefined" && isTabletViewMode) {
+    tabletPageIdx = 0;
+    populateTabletSongSelect();
+    syncTabletMetroBtn();
+    applyTabletPageAndScale();
+  }
   try { history.replaceState(null, "", "#" + song.id); } catch (e) {}
 }
 
