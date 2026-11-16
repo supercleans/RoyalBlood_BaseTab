@@ -35,6 +35,12 @@
       "title": "Hysteria BassOnly",
       "artist": "Muse",
       "file": "songs/hysteria-bassonly.json"
+    },
+    {
+      "id": "hysteria",
+      "title": "Hysteria",
+      "artist": "Muse",
+      "file": "songs/hysteria.json"
     }
   ]
 }
