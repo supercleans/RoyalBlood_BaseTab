@@ -1153,7 +1153,7 @@ git push -u origin main</div>
       </div>
       <div style="display:flex; gap:8px; flex-wrap:wrap;">
         <button type="button" class="app-btn" onclick="exportAllSongsJson()">📤 전체 악보 JSON 다운로드</button>
-        <button type="button" class="app-btn" onclick="resetCustomSongs()">🔄 추가/수정한 곡 초기화</button>
+        
       </div>
     </div>
   </div>
@@ -2808,32 +2808,13 @@ function renderSong(songId) {
   if (typeof updateSectionJumpBar === "function") updateSectionJumpBar(song);
 }
 
-const STORAGE_KEY_CUSTOM_SONGS = "dual_chain_bass_custom_songs_v4";
-const STORAGE_KEY_DELETED_SONGS = "dual_chain_bass_deleted_songs_v4";
-
-function getDeletedSongIds() {
+// 브라우저 localStorage 악보 캐시는 사용하지 않음 (항상 현재 파일 및 GitHub songs/ 폴더를 단일 원본으로 사용)
+function clearLegacyBrowserSongCache() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_DELETED_SONGS);
-    const arr = raw ? JSON.parse(raw) : [];
-    return Array.isArray(arr) ? arr : [];
-  } catch (e) { return []; }
-}
-
-function markSongIdDeleted(songId) {
-  try {
-    const list = getDeletedSongIds();
-    if (!list.includes(songId)) list.push(songId);
-    localStorage.setItem(STORAGE_KEY_DELETED_SONGS, JSON.stringify(list));
+    localStorage.removeItem("dual_chain_bass_custom_songs_v4");
+    localStorage.removeItem("dual_chain_bass_deleted_songs_v4");
   } catch (e) {}
 }
-
-function unmarkSongIdDeleted(songId) {
-  try {
-    const list = getDeletedSongIds().filter(id => id !== songId);
-    localStorage.setItem(STORAGE_KEY_DELETED_SONGS, JSON.stringify(list));
-  } catch (e) {}
-}
-const STORAGE_KEY_PREFS = "dual_chain_bass_prefs_v4";
 
 function showToast(msg) {
   const el = document.getElementById("toast-msg");
@@ -2845,38 +2826,7 @@ function showToast(msg) {
 }
 
 function loadSavedCustomSongs() {
-  if (Array.isArray(window.__EMBEDDED_CUSTOM_SONGS)) {
-    window.__EMBEDDED_CUSTOM_SONGS.forEach(custom => {
-      if (custom && custom.id && custom.title) {
-        const idx = ALL_SONGS.findIndex(s => s.id === custom.id);
-        if (idx >= 0) ALL_SONGS[idx] = custom;
-        else ALL_SONGS.push(custom);
-      }
-    });
-  }
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_CUSTOM_SONGS);
-    if (!raw) return;
-    const arr = JSON.parse(raw);
-    if (Array.isArray(arr)) {
-      arr.forEach(custom => {
-        if (custom && custom.id && custom.title) {
-          const idx = ALL_SONGS.findIndex(s => s.id === custom.id);
-          if (idx >= 0) ALL_SONGS[idx] = custom;
-          else ALL_SONGS.push(custom);
-        }
-      });
-    }
-  } catch (e) {}
-  const delIds = getDeletedSongIds();
-  if (delIds.length > 0) {
-    for (let i = ALL_SONGS.length - 1; i >= 0; i--) {
-      if (delIds.includes(ALL_SONGS[i].id)) ALL_SONGS.splice(i, 1);
-    }
-  }
-  if (ALL_SONGS.length === 0 && typeof TEMPLATE_SHOWCASE_SONG_STR !== "undefined") {
-    try { ALL_SONGS.push(JSON.parse(TEMPLATE_SHOWCASE_SONG_STR)[0]); } catch (e) {}
-  }
+  clearLegacyBrowserSongCache();
   purgeTemplateShowcaseIfRealSongsExist();
 }
 
@@ -2895,15 +2845,7 @@ function purgeTemplateShowcaseIfRealSongsExist() {
 }
 
 function saveCustomSongToStorage(songObj) {
-  if (songObj && songObj.id) unmarkSongIdDeleted(songObj.id);
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_CUSTOM_SONGS);
-    const list = raw ? JSON.parse(raw) : [];
-    const idx = list.findIndex(s => s.id === songObj.id);
-    if (idx >= 0) list[idx] = songObj;
-    else list.push(songObj);
-    localStorage.setItem(STORAGE_KEY_CUSTOM_SONGS, JSON.stringify(list));
-  } catch (e) {}
+  // 브라우저 localStorage에 악보를 중복 저장하지 않음
 }
 
 function rebuildSongTabs(filterQuery) {
@@ -2950,16 +2892,9 @@ async function deleteSongById(targetId, skipConfirm = false) {
   }
 
   // 1) 로컬 메모리 및 localStorage에서 제거 + 삭제 목록에 기록
-  markSongIdDeleted(song.id);
   const idx = ALL_SONGS.findIndex(s => s.id === song.id);
   if (idx >= 0) ALL_SONGS.splice(idx, 1);
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_CUSTOM_SONGS);
-    if (raw) {
-      const list = JSON.parse(raw).filter(s => s && s.id !== song.id);
-      localStorage.setItem(STORAGE_KEY_CUSTOM_SONGS, JSON.stringify(list));
-    }
-  } catch (e) {}
+
 
   // 2) 모든 곡이 삭제되어 0곡이 되면 템플릿 쇼케이스 복원
   if (ALL_SONGS.length === 0 && typeof TEMPLATE_SHOWCASE_SONG_STR !== "undefined") {
@@ -3829,13 +3764,7 @@ async function deleteCurrentSongFromGithub() {
   // 로컬 배열 및 localStorage에서도 제거
   const idx = ALL_SONGS.findIndex(s => s.id === song.id);
   if (idx >= 0) ALL_SONGS.splice(idx, 1);
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_CUSTOM_SONGS);
-    if (raw) {
-      const list = JSON.parse(raw).filter(s => s && s.id !== song.id);
-      localStorage.setItem(STORAGE_KEY_CUSTOM_SONGS, JSON.stringify(list));
-    }
-  } catch (e) {}
+
   if (ALL_SONGS.length === 0) {
     const demo = JSON.parse(TEMPLATE_SHOWCASE_SONG_STR)[0];
     ALL_SONGS.push(demo);
