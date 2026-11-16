@@ -1120,45 +1120,50 @@ git push -u origin main</div>
   </div>
 </div>
 
-<!-- 새 악보 추가 / 곡별 JSON 추출·수정 / 라이브러리 백업 모달 -->
+<!-- 새 악보 추가 / 곡별 JSON 추출·수정 모달 (모드별 전용 UI 분리) -->
 <div class="modal-backdrop" id="song-modal" onclick="if(event.target===this)closeSongModal()">
   <div class="modal-card" style="max-width:860px;">
     <div class="modal-head">
-      <h3>🎼 악보 JSON 추가 · 개별 곡 추출 · 수정 반영</h3>
+      <h3 id="song-modal-title">➕ 새 악보 추가</h3>
       <button type="button" class="modal-close" onclick="closeSongModal()">✕</button>
     </div>
-    <p style="font-size:12.5px; color:#cbd5e1; margin-bottom:10px;">
-      기존 곡을 선택해 <b>[📥 편집창에 불러오기]</b>로 JSON을 뽑아 수정한 뒤 <b>[✅ 악보 추가 / 수정사항 반영]</b>을 누르면 즉시 악보에 반영됩니다. 단일 곡(<code>{...}</code>)이나 여러 곡 배열(<code>[{...}, {...}]</code>) 모두 등록 가능합니다.
+    <p id="song-modal-desc" style="font-size:12.5px; color:#cbd5e1; margin-bottom:10px;">
+      AI가 생성한 악보 JSON(단일 곡 <code>{...}</code> 또는 여러 곡 배열 <code>[{...}, {...}]</code>)을 아래 입력창에 붙여넣거나 <code>.json</code> 파일을 열어 추가하세요.
     </p>
-    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; background:#1e293b; padding:8px 10px; border-radius:8px; border:1px solid #334155; margin-bottom:8px;">
+
+    <!-- [모드 A] + 새 악보 추가 전용 심플 바 -->
+    <div id="add-song-toolbar" style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; background:#1e293b; padding:8px 10px; border-radius:8px; border:1px solid #334155; margin-bottom:8px;">
+      <label class="app-btn primary" style="cursor:pointer; margin:0;">
+        📂 .json 파일 불러오기 (다중 선택 가능)
+        <input type="file" id="json-file-input-add" accept=".json,application/json" multiple style="display:none;" onchange="loadJsonFromFileInput(this)">
+      </label>
+      <button type="button" class="app-btn" onclick="pasteSongJsonFromClipboard()">📋 클립보드 붙여넣기</button>
+      <button type="button" class="app-btn" onclick="clearSongJsonInput()">🧹 입력창 비우기</button>
+    </div>
+
+    <!-- [모드 B] ✏️ 현재 곡 JSON 수정/추출 전용 바 -->
+    <div id="edit-song-toolbar" style="display:none; gap:8px; flex-wrap:wrap; align-items:center; background:#1e293b; padding:8px 10px; border-radius:8px; border:1px solid #334155; margin-bottom:8px;">
       <span style="font-size:12px; font-weight:700; color:#93c5fd;">🎯 대상 곡 선택:</span>
-      <select id="modal-song-select" class="vis-select" style="min-width:210px;" onchange="loadSelectedSongJsonToInput()"><option value="ten-tonne-skeleton">Ten Tonne Skeleton (Royal Blood)</option><option value="figure-it-out">Figure It Out (Royal Blood)</option><option value="feel">FEEL (Måneskin)</option><option value="gasoline">GASOLINE (Måneskin)</option><option value="mammamia">MAMMAMIA (Måneskin)</option></select>
-      <button type="button" class="app-btn" onclick="loadSelectedSongJsonToInput()">📥 편집창에 불러오기</button>
+      <select id="modal-song-select" class="vis-select" style="min-width:210px;" onchange="loadSelectedSongJsonToInput()"></select>
+      <button type="button" class="app-btn" onclick="loadSelectedSongJsonToInput()">📥 편집창에 다시 불러오기</button>
       <button type="button" class="app-btn" onclick="copyCurrentSongJson()">📋 JSON 복사</button>
       <button type="button" class="app-btn" onclick="downloadSelectedSongJson()">💾 이 곡만 .json 다운로드</button>
       <button type="button" class="app-btn" style="color:#fca5a5; border-color:#7f1d1d;" onclick="deleteSelectedModalSong()" title="위 드롭다운에서 선택한 곡을 삭제합니다">🗑️ 선택 곡 삭제</button>
-      <label class="app-btn" style="cursor:pointer; margin:0;">
-        📂 .json 파일 열기
-        <input type="file" id="json-file-input" accept=".json,application/json" style="display:none;" onchange="loadJsonFromFileInput(this)">
-      </label>
     </div>
-    <textarea id="song-json-input" class="json-textarea" style="min-height:280px;" placeholder="{&quot;id&quot;:&quot;hysteria&quot;,&quot;title&quot;:&quot;Hysteria&quot;,&quot;artist&quot;:&quot;Muse&quot;,&quot;bpm&quot;:93,&quot;tuning&quot;:&quot;Standard Tuning [ 4th to 1st : E A D G ]&quot;,&quot;tones&quot;:[&quot;Tone 1 : Bass&quot;,&quot;Tone 2 : +1 Oct Guitar&quot;],&quot;timeSignature&quot;:&quot;4/4&quot;,&quot;sections&quot;:[{&quot;section&quot;:&quot;Intro&quot;,&quot;measures&quot;:[{&quot;notes&quot;:[{&quot;str&quot;:3,&quot;fret&quot;:&quot;0&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;0&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;10&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;0&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;9&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;10&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;9&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;0&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;7&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;0&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;8&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;7&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;5&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;0&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;7&quot;,&quot;dur&quot;:16},{&quot;str&quot;:3,&quot;fret&quot;:&quot;5&quot;,&quot;dur&quot;:16}]}]}]}"></textarea>
+
+    <textarea id="song-json-input" class="json-textarea" style="min-height:280px;" placeholder="{&quot;id&quot;:&quot;song-id&quot;,&quot;title&quot;:&quot;곡 제목&quot;,&quot;artist&quot;:&quot;아티스트&quot;,&quot;bpm&quot;:120,&quot;tuning&quot;:&quot;Standard Tuning  [ 4th to 1st : E  A  D  G ]&quot;,&quot;tones&quot;:[&quot;Tone 1 : Bass (베이스 원음)&quot;,&quot;Tone 2 : 1 Oct Up with Guitar Amp (+1옥타브 기타 앰프)&quot;],&quot;runningToneSummary&quot;:&quot;Tone 1: Bass  |  Tone 2: +1 Oct Guitar&quot;,&quot;timeSignature&quot;:&quot;4/4&quot;,&quot;pages&quot;:[...]}"></textarea>
     <div id="song-json-status" style="font-size:12px; color:#f87171; min-height:18px; margin-bottom:8px;"></div>
     <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:space-between;">
       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-        <button type="button" class="app-btn primary" onclick="addSongFromJsonInput(false)">✅ 악보 추가 / 수정사항 반영</button>
-        <button type="button" class="app-btn accent" onclick="addSongFromJsonInput(true)" title="웹앱에 반영함과 동시에 GitHub 저장소의 songs/{id}.json 파일로 직접 커밋(저장)합니다">☁️ 반영 + GitHub에 바로 저장</button>
-        <button type="button" class="app-btn" onclick="clearSongJsonInput()">🧹 입력창 비우기</button>
-        <button type="button" class="app-btn" onclick="loadSampleMuseJson()">⚡ 샘플(Hysteria) 채우기</button>
+        <button type="button" class="app-btn primary" id="song-modal-submit-btn" onclick="addSongFromJsonInput(false)">✅ 새 악보 추가</button>
+        <button type="button" class="app-btn accent" id="song-modal-gh-submit-btn" onclick="addSongFromJsonInput(true)" title="웹앱에 반영함과 동시에 GitHub 저장소의 songs/{id}.json 파일로 직접 커밋(저장)합니다">☁️ 추가 + GitHub에 바로 저장</button>
       </div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <div id="edit-song-footer-right" style="display:none; gap:8px; flex-wrap:wrap;">
         <button type="button" class="app-btn" onclick="exportAllSongsJson()">📤 전체 악보 JSON 다운로드</button>
-        
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- AI 편곡 요청 프롬프트 자동 생성 모달 -->
 <div class="modal-backdrop" id="prompt-gen-modal" onclick="if(event.target===this)closePromptGenModal()">
@@ -3267,26 +3272,91 @@ function downloadSelectedSongJson() {
 }
 
 function loadJsonFromFileInput(inputEl) {
-  const file = inputEl && inputEl.files && inputEl.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const ta = document.getElementById("song-json-input");
-    const st = document.getElementById("song-json-status");
-    if (ta) ta.value = String(e.target.result || "");
-    if (st) st.textContent = "";
-    showToast(`'${file.name}' 파일을 편집창에 불러왔습니다. [악보 추가 / 수정사항 반영]을 눌러 적용하세요.`);
-  };
-  reader.readAsText(file, "utf-8");
+  const files = inputEl && inputEl.files ? Array.from(inputEl.files) : [];
+  if (files.length === 0) return;
+  if (files.length === 1) {
+    const file = files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const ta = document.getElementById("song-json-input");
+      const st = document.getElementById("song-json-status");
+      if (ta) ta.value = String(e.target.result || "");
+      if (st) st.textContent = "";
+      showToast(`'${file.name}' 파일을 불러왔습니다. 아래 추가 버튼을 눌러 반영하세요.`);
+    };
+    reader.readAsText(file, "utf-8");
+  } else {
+    Promise.all(files.map(f => new Promise((resolve) => {
+      const r = new FileReader();
+      r.onload = (e) => {
+        try { resolve(JSON.parse(String(e.target.result || ""))); }
+        catch (err) { resolve(null); }
+      };
+      r.readAsText(f, "utf-8");
+    }))).then(results => {
+      const valid = results.filter(Boolean);
+      const ta = document.getElementById("song-json-input");
+      const st = document.getElementById("song-json-status");
+      if (ta) ta.value = JSON.stringify(valid, null, 2);
+      if (st) st.textContent = "";
+      showToast(`총 ${valid.length}개의 .json 파일을 불러왔습니다. 아래 추가 버튼을 눌러 일괄 등록하세요.`);
+    });
+  }
   inputEl.value = "";
 }
 
-// 새 악보 JSON 모달 (loadCurrent=true 이면 현재 보고 있는 곡의 JSON을 즉시 편집창에 로드)
-function openSongModal(loadCurrent) {
-  populateModalSongSelect();
-  if (loadCurrent) {
-    loadSelectedSongJsonToInput();
+async function pasteSongJsonFromClipboard() {
+  try {
+    if (navigator.clipboard && navigator.clipboard.readText) {
+      const text = await navigator.clipboard.readText();
+      const ta = document.getElementById("song-json-input");
+      const st = document.getElementById("song-json-status");
+      if (ta && text) {
+        ta.value = text;
+        if (st) st.textContent = "";
+        showToast("클립보드의 JSON 내용을 붙여넣었습니다.");
+      }
+    } else {
+      showToast("입력창을 클릭한 뒤 Ctrl+V로 붙여넣어 주세요.");
+    }
+  } catch (e) {
+    showToast("입력창을 클릭한 뒤 Ctrl+V로 붙여넣어 주세요.");
   }
+}
+
+// isEditMode=false: [+ 새 악보 추가] 전용 심플 화면 / isEditMode=true: [✏️ 현재 곡 JSON 수정/추출] 전용 화면
+function openSongModal(isEditMode) {
+  const titleEl = document.getElementById("song-modal-title");
+  const descEl = document.getElementById("song-modal-desc");
+  const addBar = document.getElementById("add-song-toolbar");
+  const editBar = document.getElementById("edit-song-toolbar");
+  const editFooter = document.getElementById("edit-song-footer-right");
+  const submitBtn = document.getElementById("song-modal-submit-btn");
+  const ghSubmitBtn = document.getElementById("song-modal-gh-submit-btn");
+  const st = document.getElementById("song-json-status");
+  if (st) st.textContent = "";
+
+  if (isEditMode) {
+    if (titleEl) titleEl.textContent = "✏️ 현재 곡 JSON 수정 · 개별 추출 · 백업";
+    if (descEl) descEl.innerHTML = "대상 곡을 선택해 JSON을 확인·수정한 뒤 <b>[✅ 수정사항 반영]</b>을 누르거나, 개별 <code>.json</code> 파일로 다운로드·삭제할 수 있습니다.";
+    if (addBar) addBar.style.display = "none";
+    if (editBar) editBar.style.display = "flex";
+    if (editFooter) editFooter.style.display = "flex";
+    if (submitBtn) submitBtn.textContent = "✅ 수정사항 반영";
+    if (ghSubmitBtn) ghSubmitBtn.textContent = "☁️ 수정 반영 + GitHub에 바로 저장";
+    populateModalSongSelect();
+    loadSelectedSongJsonToInput();
+  } else {
+    if (titleEl) titleEl.textContent = "➕ 새 악보 추가 (JSON 붙여넣기 · 파일 열기)";
+    if (descEl) descEl.innerHTML = "AI가 생성한 악보 JSON(단일 곡 <code>{...}</code> 또는 여러 곡 배열 <code>[{...}, {...}]</code>)을 아래 입력창에 붙여넣거나 <code>.json</code> 파일을 열어 추가하세요.";
+    if (addBar) addBar.style.display = "flex";
+    if (editBar) editBar.style.display = "none";
+    if (editFooter) editFooter.style.display = "none";
+    if (submitBtn) submitBtn.textContent = "✅ 새 악보 추가";
+    if (ghSubmitBtn) ghSubmitBtn.textContent = "☁️ 새 악보 추가 + GitHub에 바로 저장";
+    clearSongJsonInput();
+  }
+
   const m = document.getElementById("song-modal");
   if (m) m.classList.add("open");
 }
