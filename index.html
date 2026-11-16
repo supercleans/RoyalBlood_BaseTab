@@ -77,6 +77,30 @@
     transition: 0.15s;
   }
 
+  
+  .song-tabs button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .song-tab-del {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    font-size: 11px;
+    line-height: 1;
+    color: #9ca3af;
+    background: rgba(0,0,0,0.22);
+    transition: 0.15s;
+  }
+  .song-tab-del:hover {
+    background: #ef4444;
+    color: #fff;
+  }
+
   .song-tabs button.active {
     background: #3b82f6;
     color: #fff;
@@ -926,6 +950,7 @@
     <input type="text" id="song-search" class="search-input" placeholder="곡명 / 아티스트 / 튜닝 검색..." oninput="filterSongTabs(this.value)">
     <button type="button" class="app-btn" onclick="openSongModal(false)">+ 새 악보 추가</button>
     <button type="button" class="app-btn" onclick="openSongModal(true)" title="현재 보고 있는 곡의 JSON을 불러와 확인·수정하거나 개별 파일로 추출합니다">✏️ 현재 곡 JSON 수정/추출</button>
+    <button type="button" class="app-btn" style="color:#fca5a5; border-color:#7f1d1d;" onclick="deleteSongById(currentSongId)" title="현재 선택된 악보를 라이브러리(및 연동된 GitHub)에서 삭제합니다">🗑️ 현재 곡 삭제</button>
     <button type="button" class="app-btn accent" id="gh-db-header-btn" onclick="openGithubDbModal()" title="GitHub 저장소의 songs/ 폴더를 무료 클라우드 DB처럼 연동해 악보를 자동 로드·직접 저장합니다">☁️ GitHub DB 연동</button>
     <button type="button" class="app-btn accent" onclick="openDeployModal()">🚀 무료 서버 올리기 (0원 가이드)</button>
     <button type="button" class="app-btn" onclick="downloadStandaloneHTML()" title="현재 모든 악보가 포함된 전체 index.html 파일로 저장">💾 index.html 다운로드</button>
@@ -1111,6 +1136,7 @@ git push -u origin main</div>
       <button type="button" class="app-btn" onclick="loadSelectedSongJsonToInput()">📥 편집창에 불러오기</button>
       <button type="button" class="app-btn" onclick="copyCurrentSongJson()">📋 JSON 복사</button>
       <button type="button" class="app-btn" onclick="downloadSelectedSongJson()">💾 이 곡만 .json 다운로드</button>
+      <button type="button" class="app-btn" style="color:#fca5a5; border-color:#7f1d1d;" onclick="deleteSelectedModalSong()" title="위 드롭다운에서 선택한 곡을 삭제합니다">🗑️ 선택 곡 삭제</button>
       <label class="app-btn" style="cursor:pointer; margin:0;">
         📂 .json 파일 열기
         <input type="file" id="json-file-input" accept=".json,application/json" style="display:none;" onchange="loadJsonFromFileInput(this)">
@@ -2783,6 +2809,30 @@ function renderSong(songId) {
 }
 
 const STORAGE_KEY_CUSTOM_SONGS = "dual_chain_bass_custom_songs_v4";
+const STORAGE_KEY_DELETED_SONGS = "dual_chain_bass_deleted_songs_v4";
+
+function getDeletedSongIds() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_DELETED_SONGS);
+    const arr = raw ? JSON.parse(raw) : [];
+    return Array.isArray(arr) ? arr : [];
+  } catch (e) { return []; }
+}
+
+function markSongIdDeleted(songId) {
+  try {
+    const list = getDeletedSongIds();
+    if (!list.includes(songId)) list.push(songId);
+    localStorage.setItem(STORAGE_KEY_DELETED_SONGS, JSON.stringify(list));
+  } catch (e) {}
+}
+
+function unmarkSongIdDeleted(songId) {
+  try {
+    const list = getDeletedSongIds().filter(id => id !== songId);
+    localStorage.setItem(STORAGE_KEY_DELETED_SONGS, JSON.stringify(list));
+  } catch (e) {}
+}
 const STORAGE_KEY_PREFS = "dual_chain_bass_prefs_v4";
 
 function showToast(msg) {
@@ -2818,6 +2868,15 @@ function loadSavedCustomSongs() {
       });
     }
   } catch (e) {}
+  const delIds = getDeletedSongIds();
+  if (delIds.length > 0) {
+    for (let i = ALL_SONGS.length - 1; i >= 0; i--) {
+      if (delIds.includes(ALL_SONGS[i].id)) ALL_SONGS.splice(i, 1);
+    }
+  }
+  if (ALL_SONGS.length === 0 && typeof TEMPLATE_SHOWCASE_SONG_STR !== "undefined") {
+    try { ALL_SONGS.push(JSON.parse(TEMPLATE_SHOWCASE_SONG_STR)[0]); } catch (e) {}
+  }
   purgeTemplateShowcaseIfRealSongsExist();
 }
 
@@ -2836,6 +2895,7 @@ function purgeTemplateShowcaseIfRealSongsExist() {
 }
 
 function saveCustomSongToStorage(songObj) {
+  if (songObj && songObj.id) unmarkSongIdDeleted(songObj.id);
   try {
     const raw = localStorage.getItem(STORAGE_KEY_CUSTOM_SONGS);
     const list = raw ? JSON.parse(raw) : [];
@@ -2855,12 +2915,102 @@ function rebuildSongTabs(filterQuery) {
     const hay = `${song.title} ${song.artist} ${song.tuning || ""}`.toLowerCase();
     if (q && hay.indexOf(q) === -1) return;
     const btn = document.createElement("button");
-    btn.textContent = `${song.title} (${song.artist})`;
     btn.dataset.id = song.id;
     btn.classList.toggle("active", song.id === currentSongId);
     btn.onclick = () => selectSong(song.id);
+
+    const lbl = document.createElement("span");
+    lbl.textContent = `${song.title} (${song.artist})`;
+    btn.appendChild(lbl);
+
+    if (song.id !== "template-showcase") {
+      const delSpan = document.createElement("span");
+      delSpan.className = "song-tab-del";
+      delSpan.title = `'${song.title}' 곡 삭제`;
+      delSpan.textContent = "✕";
+      delSpan.onclick = (e) => {
+        e.stopPropagation();
+        deleteSongById(song.id);
+      };
+      btn.appendChild(delSpan);
+    }
     tabsContainer.appendChild(btn);
   });
+}
+
+async function deleteSongById(targetId, skipConfirm = false) {
+  const song = ALL_SONGS.find(s => s.id === targetId);
+  if (!song || song.id === "template-showcase") {
+    showToast("기본 템플릿 데모 악보는 삭제할 수 없습니다 (새 곡을 추가하면 자동으로 숨겨집니다).");
+    return;
+  }
+  if (!skipConfirm && typeof window !== "undefined" && typeof window.confirm === "function") {
+    const ok = window.confirm(`'${song.title} (${song.artist || song.id})' 악보를 삭제하시겠습니까?`);
+    if (!ok) return;
+  }
+
+  // 1) 로컬 메모리 및 localStorage에서 제거 + 삭제 목록에 기록
+  markSongIdDeleted(song.id);
+  const idx = ALL_SONGS.findIndex(s => s.id === song.id);
+  if (idx >= 0) ALL_SONGS.splice(idx, 1);
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_CUSTOM_SONGS);
+    if (raw) {
+      const list = JSON.parse(raw).filter(s => s && s.id !== song.id);
+      localStorage.setItem(STORAGE_KEY_CUSTOM_SONGS, JSON.stringify(list));
+    }
+  } catch (e) {}
+
+  // 2) 모든 곡이 삭제되어 0곡이 되면 템플릿 쇼케이스 복원
+  if (ALL_SONGS.length === 0 && typeof TEMPLATE_SHOWCASE_SONG_STR !== "undefined") {
+    try { ALL_SONGS.push(JSON.parse(TEMPLATE_SHOWCASE_SONG_STR)[0]); } catch (e) {}
+  }
+
+  if (!ALL_SONGS.some(s => s.id === currentSongId) && ALL_SONGS.length > 0) {
+    currentSongId = ALL_SONGS[0].id;
+  }
+  rebuildSongTabs(document.getElementById("song-search")?.value || "");
+  populateModalSongSelect();
+  if (typeof populateTabletSongSelect === "function") populateTabletSongSelect();
+  selectSong(currentSongId);
+
+  // 3) GitHub 토큰이 설정되어 있으면 GitHub 저장소에서도 삭제
+  const cfg = (typeof getGithubConfig === "function") ? getGithubConfig() : {};
+  if (cfg && cfg.token && cfg.owner && cfg.repo) {
+    const relPath = `${cfg.dir}/${song.id}.json`;
+    try {
+      const headers = {
+        "Accept": "application/vnd.github.v3+json",
+        "Authorization": `Bearer ${cfg.token}`,
+        "Content-Type": "application/json"
+      };
+      const apiUrl = `https://api.github.com/repos/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/contents/${relPath}`;
+      const getRes = await fetch(`${apiUrl}?ref=${encodeURIComponent(cfg.branch)}&_t=${Date.now()}`, { headers, cache: "no-store" });
+      if (getRes.ok) {
+        const getJson = await getRes.json();
+        if (getJson && getJson.sha) {
+          await fetch(apiUrl, {
+            method: "DELETE",
+            headers,
+            body: JSON.stringify({
+              message: `Delete bass tab: ${song.id}`,
+              sha: getJson.sha,
+              branch: cfg.branch
+            })
+          });
+          await updateGithubIndexManifest();
+        }
+      }
+    } catch (e) {}
+  }
+
+  showToast(`🗑️ '${song.title}' 악보가 삭제되었습니다.`);
+}
+
+function deleteSelectedModalSong() {
+  const sel = document.getElementById("modal-song-select");
+  const targetId = (sel && sel.value) ? sel.value : currentSongId;
+  deleteSongById(targetId, false);
 }
 
 function filterSongTabs(val) {
@@ -3800,7 +3950,7 @@ function exportAllSongsJson() {
 }
 
 function resetCustomSongs() {
-  try { localStorage.removeItem(STORAGE_KEY_CUSTOM_SONGS); } catch (e) {}
+  try { localStorage.removeItem(STORAGE_KEY_CUSTOM_SONGS); localStorage.removeItem(STORAGE_KEY_DELETED_SONGS); } catch (e) {}
   showToast("브라우저에 추가된 커스텀 악보가 초기화되었습니다. 새로고침 시 기본 4곡으로 복원됩니다.");
 }
 
