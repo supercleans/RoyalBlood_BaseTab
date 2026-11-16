@@ -751,7 +751,7 @@
 </div>
 
 <div class="toolbar">
-  <div class="song-tabs" id="song-tabs"><button data-id="ten-tonne-skeleton" class="active">Ten Tonne Skeleton (Royal Blood)</button><button data-id="figure-it-out">Figure It Out (Royal Blood)</button><button data-id="feel">FEEL (Måneskin)</button><button data-id="gasoline">GASOLINE (Måneskin)</button></div>
+  <div class="song-tabs" id="song-tabs"></div>
   <div class="controls-right">
     <div class="control-group">
       <label for="fret-size-input">타브 숫자 크기(pt):</label>
@@ -824,9 +824,9 @@
   </div>
 </div>
 
-<div class="section-jump-bar" id="section-jump-bar"><span style="color:#94a3b8; font-weight:700;">📍 구간 바로가기 (Ten Tonne Skeleton · 140 BPM):</span><button type="button" class="jump-chip">Intro</button><button type="button" class="jump-chip">Verse 1</button><button type="button" class="jump-chip">Chorus 1</button><button type="button" class="jump-chip">Verse 2</button><button type="button" class="jump-chip">Pre-Chorus</button><button type="button" class="jump-chip">Chorus 2</button><button type="button" class="jump-chip">Bridge</button><button type="button" class="jump-chip">Breakdown</button><button type="button" class="jump-chip">Solo 1</button><button type="button" class="jump-chip">Solo 2</button><button type="button" class="jump-chip">Outro Bridge</button><button type="button" class="jump-chip">Ending</button></div>
+<div class="section-jump-bar" id="section-jump-bar"></div>
 
-<div id="validation-panel" class="validation-panel"><div class="vp-summary ok"><b>박자 검증 통과</b> &nbsp;·&nbsp; 레이아웃: 원본 고정 (pages) &nbsp;·&nbsp; 45마디 / 15줄 / 2쪽 &nbsp;·&nbsp; 참고 2건</div><ul><li class="lv-info"><span class="tag">참고</span> <b>37마디</b> (Solo 2): 2번째 음표: 위쪽 기둥 음표의 벤딩 화살표가 꼬리(beam)와 교차할 수 있습니다 (stem: "down" 권장).</li><li class="lv-info"><span class="tag">참고</span> <b>38마디</b> (Solo 2): 2번째 음표: 위쪽 기둥 음표의 벤딩 화살표가 꼬리(beam)와 교차할 수 있습니다 (stem: "down" 권장).</li></ul></div>
+<div id="validation-panel" class="validation-panel"></div>
 
 <div class="score-viewport">
   <div id="score-root"></div>
@@ -894,7 +894,7 @@ git push -u origin main</div>
     </p>
     <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; background:#1e293b; padding:8px 10px; border-radius:8px; border:1px solid #334155; margin-bottom:8px;">
       <span style="font-size:12px; font-weight:700; color:#93c5fd;">🎯 대상 곡 선택:</span>
-      <select id="modal-song-select" class="vis-select" style="min-width:210px;" onchange="loadSelectedSongJsonToInput()"></select>
+      <select id="modal-song-select" class="vis-select" style="min-width:210px;" onchange="loadSelectedSongJsonToInput()"><option value="ten-tonne-skeleton">Ten Tonne Skeleton (Royal Blood)</option><option value="figure-it-out">Figure It Out (Royal Blood)</option><option value="feel">FEEL (Måneskin)</option><option value="gasoline">GASOLINE (Måneskin)</option><option value="mammamia">MAMMAMIA (Måneskin)</option></select>
       <button type="button" class="app-btn" onclick="loadSelectedSongJsonToInput()">📥 편집창에 불러오기</button>
       <button type="button" class="app-btn" onclick="copyCurrentSongJson()">📋 JSON 복사</button>
       <button type="button" class="app-btn" onclick="downloadSelectedSongJson()">💾 이 곡만 .json 다운로드</button>
@@ -919,7 +919,7 @@ git push -u origin main</div>
   </div>
 </div>
 
-<div class="toast-msg" id="toast-msg"></div>
+<div class="toast-msg" id="toast-msg" style="display: none;">'MAMMAMIA' 악보가 라이브러리에 추가되었습니다!</div>
 
 <script>
 // [1] v3 샘플 곡 — 원본 데이터 그대로 (pages → systems → measures, 원본 고정 레이아웃)
@@ -18530,7 +18530,6 @@ const ALL_SONGS = [
             ]
           },
           {
-            "toneChange": "Tone 1&2",
             "measures": [
               {
                 "notes": [
@@ -18743,8 +18742,9 @@ const ALL_SONGS = [
           },
           {
             "section": "Verse 1",
-            "toneChange": "Tone 1",
             "repeatStartBar": true,
+            "repeatEndBar": true,
+            "repeatEnd": "(2X)",
             "measures": [
               {
                 "notes": [
@@ -18955,6 +18955,8 @@ const ALL_SONGS = [
           {
             "repeatEndBar": true,
             "repeatEnd": "(2X)",
+            "toneChange": "Tone 1&2",
+            "repeatStartBar": true,
             "measures": [
               {
                 "notes": [
@@ -19164,6 +19166,7 @@ const ALL_SONGS = [
           },
           {
             "section": "Pre-Chorus 1",
+            "toneChange": "Tone 1",
             "measures": [
               {
                 "notes": [
@@ -19286,117 +19289,61 @@ const ALL_SONGS = [
                     "dur": 8
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "flag-8"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "start"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "end"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "start"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "mid"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "11"
-                      ],
-                      [
-                        3,
-                        "9"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "9",
                     "dur": 8,
                     "stem": "up",
                     "beam": "mid"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "end"
                   }
-                ],
-                "toneChange": "Tone 1&2"
+                ]
               }
             ]
           },
           {
             "section": "Chorus 1",
+            "toneChange": "Tone 1&2",
             "measures": [
               {
                 "notes": [
@@ -20136,7 +20083,8 @@ const ALL_SONGS = [
                     "beam": "none",
                     "sl": "down"
                   }
-                ]
+                ],
+                "toneChange": "Tone 1"
               }
             ]
           },
@@ -20145,6 +20093,7 @@ const ALL_SONGS = [
             "repeatStartBar": true,
             "repeatEndBar": true,
             "repeatEnd": "(2X)",
+            "toneChange": "Tone 1&2",
             "measures": [
               {
                 "notes": [
@@ -20155,6 +20104,216 @@ const ALL_SONGS = [
                     "stem": "up",
                     "beam": "flag-8",
                     "slIn": "up"
+                  },
+                  {
+                    "rest": true,
+                    "dur": 8
+                  },
+                  {
+                    "str": 3,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "flag-8"
+                  },
+                  {
+                    "rest": true,
+                    "dur": 8
+                  },
+                  {
+                    "str": 4,
+                    "fret": "4",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "start"
+                  },
+                  {
+                    "str": 3,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "end",
+                    "dot": true
+                  },
+                  {
+                    "rest": true,
+                    "dur": 8
+                  },
+                  {
+                    "str": 3,
+                    "fret": "7",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "flag-8",
+                    "tie": true
+                  }
+                ]
+              },
+              {
+                "notes": [
+                  {
+                    "str": 3,
+                    "fret": "7",
+                    "dur": 4,
+                    "stem": "up",
+                    "beam": "none"
+                  },
+                  {
+                    "rest": true,
+                    "dur": 8
+                  },
+                  {
+                    "str": 3,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "flag-8",
+                    "tie": true
+                  },
+                  {
+                    "str": 3,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "start"
+                  },
+                  {
+                    "str": 3,
+                    "fret": "7",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "mid"
+                  },
+                  {
+                    "str": 3,
+                    "fret": "7",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "mid"
+                  },
+                  {
+                    "str": 3,
+                    "fret": "7",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "end"
+                  }
+                ]
+              },
+              {
+                "notes": [
+                  {
+                    "str": 2,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "flag-8"
+                  },
+                  {
+                    "rest": true,
+                    "dur": 8
+                  },
+                  {
+                    "str": 3,
+                    "fret": "7",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "flag-8"
+                  },
+                  {
+                    "rest": true,
+                    "dur": 8
+                  },
+                  {
+                    "str": 2,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "start"
+                  },
+                  {
+                    "str": 3,
+                    "fret": "7",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "end"
+                  },
+                  {
+                    "rest": true,
+                    "dur": 8
+                  },
+                  {
+                    "str": 2,
+                    "fret": "7",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "flag-8",
+                    "tie": true
+                  }
+                ]
+              },
+              {
+                "notes": [
+                  {
+                    "str": 2,
+                    "fret": "7",
+                    "dur": 4,
+                    "stem": "down",
+                    "dotted": true,
+                    "beam": "none"
+                  },
+                  {
+                    "str": 2,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "flag-8",
+                    "tie": true
+                  },
+                  {
+                    "str": 2,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "start"
+                  },
+                  {
+                    "str": 2,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "mid"
+                  },
+                  {
+                    "str": 2,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "mid"
+                  },
+                  {
+                    "str": 2,
+                    "fret": "6",
+                    "dur": 8,
+                    "stem": "down",
+                    "beam": "end"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "section": "Verse 2",
+            "toneChange": "Tone 1",
+            "measures": [
+              {
+                "notes": [
+                  {
+                    "str": 4,
+                    "fret": "4",
+                    "dur": 8,
+                    "stem": "up",
+                    "beam": "flag-8"
                   },
                   {
                     "rest": true,
@@ -20359,220 +20518,6 @@ const ALL_SONGS = [
         "pageNumber": 2,
         "systems": [
           {
-            "section": "Verse 2",
-            "toneChange": "Tone 1",
-            "repeatStartBar": true,
-            "repeatEndBar": true,
-            "repeatEnd": "(2X)",
-            "measures": [
-              {
-                "notes": [
-                  {
-                    "str": 4,
-                    "fret": "4",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "flag-8"
-                  },
-                  {
-                    "rest": true,
-                    "dur": 8
-                  },
-                  {
-                    "str": 3,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "flag-8"
-                  },
-                  {
-                    "rest": true,
-                    "dur": 8
-                  },
-                  {
-                    "str": 4,
-                    "fret": "4",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "start"
-                  },
-                  {
-                    "str": 3,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "end",
-                    "dot": true
-                  },
-                  {
-                    "rest": true,
-                    "dur": 8
-                  },
-                  {
-                    "str": 3,
-                    "fret": "7",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "flag-8",
-                    "tie": true
-                  }
-                ]
-              },
-              {
-                "notes": [
-                  {
-                    "str": 3,
-                    "fret": "7",
-                    "dur": 4,
-                    "stem": "up",
-                    "beam": "none"
-                  },
-                  {
-                    "rest": true,
-                    "dur": 8
-                  },
-                  {
-                    "str": 3,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "flag-8",
-                    "tie": true
-                  },
-                  {
-                    "str": 3,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "start"
-                  },
-                  {
-                    "str": 3,
-                    "fret": "7",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "mid"
-                  },
-                  {
-                    "str": 3,
-                    "fret": "7",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "mid"
-                  },
-                  {
-                    "str": 3,
-                    "fret": "7",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "end"
-                  }
-                ]
-              },
-              {
-                "notes": [
-                  {
-                    "str": 2,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "flag-8"
-                  },
-                  {
-                    "rest": true,
-                    "dur": 8
-                  },
-                  {
-                    "str": 3,
-                    "fret": "7",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "flag-8"
-                  },
-                  {
-                    "rest": true,
-                    "dur": 8
-                  },
-                  {
-                    "str": 2,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "start"
-                  },
-                  {
-                    "str": 3,
-                    "fret": "7",
-                    "dur": 8,
-                    "stem": "up",
-                    "beam": "end"
-                  },
-                  {
-                    "rest": true,
-                    "dur": 8
-                  },
-                  {
-                    "str": 2,
-                    "fret": "7",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "flag-8",
-                    "tie": true
-                  }
-                ]
-              },
-              {
-                "notes": [
-                  {
-                    "str": 2,
-                    "fret": "7",
-                    "dur": 4,
-                    "stem": "down",
-                    "dotted": true,
-                    "beam": "none"
-                  },
-                  {
-                    "str": 2,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "flag-8",
-                    "tie": true
-                  },
-                  {
-                    "str": 2,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "start"
-                  },
-                  {
-                    "str": 2,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "mid"
-                  },
-                  {
-                    "str": 2,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "mid"
-                  },
-                  {
-                    "str": 2,
-                    "fret": "6",
-                    "dur": 8,
-                    "stem": "down",
-                    "beam": "end"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "toneChange": "Tone 1&2",
             "measures": [
               {
                 "notes": [
@@ -20750,6 +20695,7 @@ const ALL_SONGS = [
           },
           {
             "section": "Pre-Chorus 2",
+            "toneChange": "Tone 1&2",
             "measures": [
               {
                 "notes": [
@@ -20959,7 +20905,6 @@ const ALL_SONGS = [
             ]
           },
           {
-            "toneChange": "Tone 1",
             "measures": [
               {
                 "notes": [
@@ -21134,7 +21079,8 @@ const ALL_SONGS = [
                     "beam": "none",
                     "sl": "down"
                   }
-                ]
+                ],
+                "toneChange": "Tone 1"
               }
             ]
           },
@@ -21262,117 +21208,61 @@ const ALL_SONGS = [
                     "dur": 8
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "flag-8"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "start"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "end"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "start"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "mid"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "11"
-                      ],
-                      [
-                        3,
-                        "9"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "9",
                     "dur": 8,
                     "stem": "up",
                     "beam": "mid"
                   },
                   {
-                    "chords": [
-                      [
-                        2,
-                        "9"
-                      ],
-                      [
-                        3,
-                        "7"
-                      ]
-                    ],
+                    "str": 3,
+                    "fret": "7",
                     "dur": 8,
                     "stem": "up",
                     "beam": "end"
                   }
-                ],
-                "toneChange": "Tone 1&2"
+                ]
               }
             ]
           },
           {
             "section": "Chorus 2",
+            "toneChange": "Tone 1&2",
             "measures": [
               {
                 "notes": [
@@ -22650,12 +22540,7 @@ const ALL_SONGS = [
                 ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "pageNumber": 3,
-        "systems": [
+          },
           {
             "measures": [
               {
@@ -22908,7 +22793,12 @@ const ALL_SONGS = [
                 ]
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "pageNumber": 3,
+        "systems": [
           {
             "section": "1.",
             "measures": [
@@ -23879,7 +23769,6 @@ const ALL_SONGS = [
           },
           {
             "section": "Guitar Solo",
-            "toneChange": "Tone 2",
             "measures": [
               {
                 "notes": [
@@ -24113,7 +24002,6 @@ const ALL_SONGS = [
           },
           {
             "section": "Outro",
-            "toneChange": "Tone 1&2",
             "measures": [
               {
                 "notes": [
